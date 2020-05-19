@@ -1,0 +1,19 @@
+   
+        <div class="bx--text-input__field-wrapper bx--form-item login-style">
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
+                <h3>Log in</h3>
+            <ibm-label>
+                Username
+                <input ibmText  placeholder="Username" formControlName="username" required>
+            </ibm-label>
+            <ibm-label>
+                Password
+                <input ibmText type="password"  placeholder="Password" formControlName='password' required>
+            </ibm-label>
+            <br/>   
+            <button ibmButton="primary" size="sm" class="login-btn">Login
+                <svg class="bx--btn__icon" ibmIconLogin20></svg>
+            </button>
+        </form>
+        </div>
+<router-outlet></router-outlet>

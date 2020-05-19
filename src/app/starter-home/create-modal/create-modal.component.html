@@ -1,0 +1,29 @@
+<ibm-modal size="sm" open="open" (overlaySelected)="closeModal()" class="modal-style">
+    <ibm-modal-header (closeSelect)="closeModal()">Library Entry</ibm-modal-header>
+    <form [formGroup]="entryForm" (ngSubmit)="onEntry(entryForm.value)">
+        <section class="bx--modal-content">
+            <ibm-label>
+                Student Roll no
+                <input ibmText placeholder="Roll no" formControlName="rollno" value="rollno">
+            </ibm-label>
+            <ibm-label>
+                Student Name
+                <input ibmText placeholder="Student name" formControlName='student_name' value="student_name">
+            </ibm-label>
+
+                <ibm-select formControlName="books" class="select-style" label="Book" value="books">
+                    <option [ngValue]="null" disabled>Select book</option>
+                    <option *ngFor="let book of books" [ngValue]="book">
+                     {{book.id}}-{{ book.name }}
+                    </option>
+                </ibm-select>
+
+            <br />
+        </section>
+        <ibm-modal-footer>
+            <button class="bx--btn bx--btn--secondary" (click)="closeModal()">Cancel</button>
+            <button class="bx--btn bx--btn--primary" modal-primary-focus
+              >Save</button>
+        </ibm-modal-footer>
+    </form>
+</ibm-modal>
